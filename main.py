@@ -4,9 +4,17 @@ import json
 import os
 from tqdm import tqdm
 from colorama import Fore, Style, init
+import re
+
+def sanitize_filename(name):
+    """
+    Remove or replace invalid characters for filenames.
+    :param name: Original name.
+    :return: Sanitized name safe for filenames.
+    """
+    return re.sub(r'[<>:"/\\|?*]', '_', name)
 
 def fetch_episode_details(url):
-    # Запрос HTML-контента
     response = requests.get(url, headers={
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36'
     })
@@ -76,7 +84,8 @@ def download_episode_pages(episode_id, manga_title, chapter_no):
         print(Fore.RED + "[ERROR] No pages available for chapter {chapter_no}" + Style.RESET_ALL)
         return
 
-    manga_folder = f"{manga_title.replace(' ', '_')}"
+    sanitized_title = sanitize_filename(manga_title)
+    manga_folder = f"{sanitized_title}"
     chapter_folder = os.path.join(manga_folder, f"Chapter_{chapter_no}")
 
     if not os.path.exists(chapter_folder):
