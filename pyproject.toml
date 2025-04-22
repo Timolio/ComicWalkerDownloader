@@ -1,5 +1,5 @@
 [project]
-name = "comicwalker_downloader"
+name = "cowado"
 description = "Download manga from ComicWalker"
 authors = [{ name = "Timolio", email = "timbad77777@gmail.com"}]
 license = { text = "MIT" }
@@ -11,6 +11,7 @@ dependencies = [
     "tqdm",
     "colorama"
 ]
+readme = { file = "README.md", content-type = "text/markdown" }
 
 [project.urls]
 Homepage = "https://github.com/Timolio/ComicWalkerDownloader"

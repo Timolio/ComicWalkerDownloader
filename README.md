@@ -2,6 +2,10 @@
 
 CLI tool to download manga from ComicWalker.
 
+## Requirements
+
+**Python 3.7+** must be installed on your system. You can download it from [python.org](https://www.python.org/downloads/).
+
 ## Installation
 
 ```bash
