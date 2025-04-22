@@ -1,35 +1,35 @@
-# ComicWalkerDownloader
+# ComicWalkerDownloader aka cowado
 
-ComicWalkerDownloader is a simple tool to download all images of a chapter from ComicWalker.
-
-## Features
-
--   Downloads all images from the selected chapter.
--   Supports input of a chapter URL.
--   Allows choosing a specific chapter number or the current chapter.
+CLI tool to download manga from ComicWalker.
 
 ## Installation
 
-1. Ensure you have Python 3.8 or higher installed.
+```bash
+pip install cowado
+```
+
+Or from source:
+
+```bash
+git clone https://github.com/Timolio/ComicWalkerDownloader.git
+cd ComicWalkerDownloader
+pip install .
+```
 
 ## Usage
 
-1. Run the program with Python:
-    ```bash
-    python main.py
-    ```
-2. Enter the URL of any ComicWalker chapter.
-3. Choose:
-    - The chapter number you want to download.
-    - Option to download the current chapter.
-4. The images will be downloaded to the specified directory.
+Navigate to the folder where you want the images to be saved, then run:
 
-## Example Input
+```bash
+cowado [comicwalker_url]
+```
 
--   Paste a chapter URL, e.g., `https://comic-walker.com/detail/KC_006209_S/episodes/KC_0062090000700011_E?episodeType=latest`.
--   Specify the chapter number (e.g., `2`) or select the current one by pressing Enter.
+Example:
+
+```bash
+cowado https://comic-walker.com/detail/KC_006351_S/episodes/KC_0063510000500011_E?episodeType=latest
+```
 
 ## Notes
 
--   All downloaded images are saved in a separate folder named after the chapter, which is located inside a folder named after the manga title, in the same directory as the `comic_walker.py` file.
--   Make sure you do not use this tool to infringe any copyright laws.
+Make sure you do not use this tool to infringe any copyright laws.
