@@ -12,6 +12,8 @@ CLI tool to download manga from ComicWalker.
 pip install cowado
 ```
 
+[![PyPI Downloads](https://static.pepy.tech/badge/cowado)](https://pepy.tech/projects/cowado)
+
 Or from source:
 
 ```bash
