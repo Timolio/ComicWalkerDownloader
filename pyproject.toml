@@ -9,9 +9,19 @@ dependencies = [
     "requests",
     "beautifulsoup4",
     "tqdm",
-    "colorama"
+    "colorama",
+    "InquirerPy",
+    "loguru"
 ]
 readme = { file = "README.md", content-type = "text/markdown" }
+requires-python = ">=3.8"
+keywords = [
+    "comic",
+    "manga",
+    "downloader",
+    "comicwalker",
+    "cowado"
+]
 
 [project.urls]
 Homepage = "https://github.com/Timolio/ComicWalkerDownloader"
