@@ -33,5 +33,5 @@ version = {attr = "comicwalker_downloader._version.__version__"}
 cowado = "comicwalker_downloader.__main__:main"
 
 [build-system]
-requires = ["setuptools>=61.0"]
+requires = ["setuptools>=61.0", "build"]
 build-backend = "setuptools.build_meta"
