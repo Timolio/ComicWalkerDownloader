@@ -12,7 +12,7 @@ class ComicDownloader:
     @staticmethod
     def _fetch_episode(ep: dict, output_dir: str) -> None:
         try:
-            url = f'https://comic-walker.com/api/contents/viewer?episodeId={ep['id']}&imageSizeType=width%3A768'
+            url = f"https://comic-walker.com/api/contents/viewer?episodeId={ep['id']}&imageSizeType=width%3A768'"
             response = requests.get(
                 url,
                 headers={
