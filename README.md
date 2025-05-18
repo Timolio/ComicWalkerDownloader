@@ -1,7 +1,7 @@
 # ComicWalkerDownloader aka cowado
 
-![PyPI - Version](https://img.shields.io/pypi/v/cowado?color=blue&link=https%3A%2F%2Fpypi.org%2Fproject%2Fcowado%2F)
-![Static Badge](https://img.shields.io/badge/python-3.8%20%7C%203.9%20%7C%203.10%20%7C%203.11%20%7C%203.12-blue?link=https%3A%2F%2Fwww.python.org%2Fdownloads%2F)
+[![PyPI - Version](https://img.shields.io/pypi/v/cowado?color=blue)](https://pypi.org/project/cowado/)
+[![Static Badge](https://img.shields.io/badge/python-%203.8%20%7C%203.9%20%7C%203.10%20%7C%203.11%20%7C%203.12%20-blue)](https://www.python.org/downloads/)
 [![PyPI Downloads](https://static.pepy.tech/badge/cowado)](https://pepy.tech/projects/cowado)
 
 CLI tool to download manga from ComicWalker.
