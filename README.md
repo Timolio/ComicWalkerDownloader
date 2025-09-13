@@ -32,12 +32,12 @@ cowado https://comic-walker.com/detail/KC_003002_S/episodes/KC_0030020011500011_
 
 2. After that, you can choose which chapter to download from all available options.
 
-<img width="867" height="463" alt="Image" src="https://github.com/user-attachments/assets/48d76e41-c4a6-4d86-bd06-a9a39d074f17" />
+<img width="619" height="331" alt="Image" src="https://github.com/user-attachments/assets/2523dce0-a87d-470f-8987-ef3caef769a3" />
 
 3. Next, enter the download path. You can also simply press Enter to download to the current directory.
 
-<img width="867" height="463" alt="Image" src="https://github.com/user-attachments/assets/004d4418-f0fd-4a96-b406-46d0d12b8673" />
+<img width="619" height="331" alt="Image" src="https://github.com/user-attachments/assets/004d4418-f0fd-4a96-b406-46d0d12b8673" />
 
 🎉 The pages will then begin downloading in WebP format.
 
-<img width="867" height="463" alt="Image" src="https://github.com/user-attachments/assets/3909ff9b-f25e-4fd3-93d0-2f726e5e70e4" />
+<img width="619" height="331" alt="Image" src="https://github.com/user-attachments/assets/3909ff9b-f25e-4fd3-93d0-2f726e5e70e4" />
