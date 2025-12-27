@@ -3,6 +3,7 @@ import json
 from typing import Dict, List
 from bs4 import BeautifulSoup
 from loguru import logger
+from comicwalker_downloader.exceptions import ParsingError, EpisodeNotFoundError
 
 class ComicParser:
     def __init__(self, url: str) -> None:
@@ -16,7 +17,12 @@ class ComicParser:
             self.ep = self.data['episode']
             return
 
-        self.ep = next((ep for ep in self.data['firstEpisodes']['result'] if ep['internal']['episodeNo'] == ep_number), None)
+        self.ep = next(
+            (ep for ep in self.data['firstEpisodes']['result'] if ep['internal']['episodeNo'] == ep_number and ep['isActive']), None
+        )
+
+        if self.ep is None:
+            raise EpisodeNotFoundError(f"Episode {ep_number} not found or not available")
     
     def get_episode_list(self, only_active: bool = False) -> List[Dict]:
         ep_list = []
@@ -24,12 +30,10 @@ class ComicParser:
             if only_active and not ep['isActive']:
                 continue
 
-            # item = f'( {ep['internal']['episodeNo']} )   {ep['title']}' + ('   <-- CURRENT' if ep['internal']['episodeNo'] == self.data['episode']['internal']['episodeNo'] else '')
-
             ep_list.append({
                 'number': ep['internal']['episodeNo'],
                 'title': ep['title'],
-                'is_active: ': ep['isActive'],
+                'is_active': ep['isActive'],
             })
         return ep_list
     
@@ -48,17 +52,37 @@ class ComicParser:
                 }
             )
             response.raise_for_status()
+        except requests.exceptions.ConnectionError:
+            raise ParsingError("Connection error. Please check your internet connection")
+        except requests.exceptions.HTTPError as e:
+            if response.status_code == 404:
+                raise ParsingError("Page not found. Please check the URL")
+            raise ParsingError(f"HTTP error {response.status_code}: {e}")
+        except requests.exceptions.RequestException as e:
+            raise ParsingError(f"Failed to fetch page: {e}")
+
+        try:
             html_content = response.text
             soup = BeautifulSoup(html_content, 'html.parser')
             script_tag = soup.find('script', {'id': '__NEXT_DATA__'})
+
             if not script_tag:
-                raise ValueError("ComicWalker __NEXT_DATA__ script tag not found")
+                raise ParsingError("ComicWalker data not found")
+            
             json_data = json.loads(script_tag.string)
-            work = json_data['props']['pageProps']['dehydratedState']['queries'][0]['state']['data']['work']
-            first_episodes = json_data['props']['pageProps']['dehydratedState']['queries'][0]['state']['data']['firstEpisodes']
-            episode = json_data['props']['pageProps']['dehydratedState']['queries'][2]['state']['data']['episode']
+
+            queries = json_data.get('props', {}).get('pageProps', {}).get('dehydratedState', {}).get('queries', {})
+
+            work = queries[0].get('state', {}).get('data', {}).get('work', {})
+            first_episodes = queries[0].get('state', {}).get('data', {}).get('firstEpisodes', {})
+            episode = queries[2].get('state', {}).get('data', {}).get('episode', {})
+
             if not work or not first_episodes or not episode:
-                raise ValueError('Misssing essential ComicWalker data for parsing')
+                raise ParsingError('Misssing essential ComicWalker data')
+
             self.data = {'work': work, 'firstEpisodes': first_episodes, 'episode': episode}
-        except Exception as e:
-            raise ValueError(f"Failed to parse ComicWalker data: {e}")
+
+        except json.JSONDecodeError:
+            raise ParsingError("Failed to parse page data")
+        except KeyError as e:
+            raise ParsingError(f"Unexpected page structure: missing key {e}")

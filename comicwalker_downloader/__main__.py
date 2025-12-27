@@ -1,11 +1,12 @@
 import fire
-from comicwalker_downloader.run import run
+from loguru import logger
+from comicwalker_downloader.cli import CLI
 
 def main() -> None: 
     try:
-        fire.Fire(run)
+        fire.Fire(CLI)
     except KeyboardInterrupt:
-        print("\nExiting...")
+        logger.warning("Terminated by user")
 
 if __name__ == "__main__":
     main()
