@@ -6,6 +6,8 @@
 
 ## ComicWalkerDownloader aka cowado
 
+<img width="619" height="331" alt="Image" src="https://github.com/user-attachments/assets/8fc8191c-79f2-4ca0-be3f-27c78389972c" />
+
 CLI tool to download manga images from ComicWalker.
 
 ⚠️ **IMPORTANT:** Make sure you do not use this tool to infringe any copyright laws.
@@ -23,26 +25,18 @@ pip install cowado
 1. Copy the URL of any manga chapter, or specifically the one you want to download. Then run the command shown below.
 
 ```bash
-cowado download [comicwalker_url]
+cowado download [url]
 # example
 cowado download https://comic-walker.com/detail/KC_003002_S/episodes/KC_0030020011500011_E?episodeType=latest
 ```
 
-<br>
-
 2. After that, you can choose which chapter to download from all available options.
-
-<img width="619" height="331" alt="Image" src="https://github.com/user-attachments/assets/2523dce0-a87d-470f-8987-ef3caef769a3" />
 
 3. Next, enter the download path. You can also simply press Enter to download to the current directory.
 
-<img width="619" height="331" alt="Image" src="https://github.com/user-attachments/assets/004d4418-f0fd-4a96-b406-46d0d12b8673" />
-
 🎉 The pages will then begin downloading in WebP format.
 
-<img width="619" height="331" alt="Image" src="https://github.com/user-attachments/assets/3909ff9b-f25e-4fd3-93d0-2f726e5e70e4" />
-
-#### Direct Input Commands / Flags
+#### ► Direct Input Commands / Flags
 
 You can skip the interactive part of the program by providing the necessary info with flags:
 
@@ -57,7 +51,7 @@ cowado download [url] --episode=1
 cowado download [url] --output-dir="."
 ```
 
-#### Check Available Episodes
+#### ► Check Available Episodes
 
 View all available episodes without downloading:
 
@@ -68,7 +62,7 @@ cowado check [url]
 cowado check [url] --show-inactive
 ```
 
-#### Other Commands
+#### ► Other Commands
 
 ```bash
 # Show version
