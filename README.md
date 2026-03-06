@@ -6,65 +6,101 @@
 
 ## ComicWalkerDownloader aka cowado
 
-<img width="619" height="331" alt="Image" src="https://github.com/user-attachments/assets/8fc8191c-79f2-4ca0-be3f-27c78389972c" />
+<img width="619" height="331" alt="Image" src="https://github.com/user-attachments/assets/e8aa40c5-e9c3-47f6-b29f-b5babb5c7cfb" />
 
-CLI tool to download manga images from ComicWalker.
+CLI tool to download manga images from [ComicWalker](https://comic-walker.com).
 
-⚠️ **IMPORTANT:** Make sure you do not use this tool to infringe any copyright laws.
+> ⚠️ Make sure you do not use this tool to infringe any copyright laws.
+
+---
 
 ### Installation
 
-**Python 3.8+** must be installed on your system. You can download it from [python.org](https://www.python.org/downloads/).
+**Python 3.8+** is required. Download it from [python.org](https://www.python.org/downloads/).
 
 ```bash
 pip install cowado
 ```
 
+---
+
 ### Usage
 
-1. Copy the URL of any manga chapter, or specifically the one you want to download. Then run the command shown below.
+#### `cowado download <url>`
+
+Pass any ComicWalker URL — a series page, a direct episode link, or one with query params:
 
 ```bash
-cowado download [url]
-# example
-cowado download https://comic-walker.com/detail/KC_003002_S/episodes/KC_0030020011500011_E?episodeType=latest
+cowado download https://comic-walker.com/detail/KC_008483_S
+cowado download https://comic-walker.com/detail/KC_008483_S?episodeType=first
+cowado download https://comic-walker.com/detail/KC_008483_S/episodes/KC_0084830000200011_E
+cowado download https://comic-walker.com/detail/KC_008483_S/episodes/KC_0084830000200011_E?episodeType=latest
+...
 ```
 
-2. After that, you can choose which chapter to download from all available options.
+The tool fetches the manga details and shows you what it found:
 
-3. Next, enter the download path. You can also simply press Enter to download to the current directory.
+```
+  青春ヒストリカ
+  ────────────────
+  12 episode(s) available
 
-🎉 The pages will then begin downloading in WebP format.
+? Select episode to download:
+ ❯ [12] 第12話  ← CURRENT
+   [11] 第11話
+   [10] 第10話
+   ...
 
-#### ► Direct Input Commands / Flags
+  Downloading → [12] 第12話
+  Saving to   → /home/user/青春ヒストリカ/012/
 
-You can skip the interactive part of the program by providing the necessary info with flags:
+  ████████████████████████  22/22 pages
 
-```bash
-# Will start downloading immediately
-cowado download [url] --episode=5 --output-dir="./manga"
-
-# Will ask only for an output path
-cowado download [url] --episode=1
-
-# Will ask only to choose an episode
-cowado download [url] --output-dir="."
+  ✓ Done! /home/user/青春ヒストリカ/012/
 ```
 
-#### ► Check Available Episodes
+Pages are saved as `.webp` files, named by page number (`001.webp`, `002.webp`, ...).
 
-View all available episodes without downloading:
+---
+
+#### Flags
+
+| Flag                    | Description                                                                |
+| ----------------------- | -------------------------------------------------------------------------- |
+| `--episode=N`           | Skip selection and download episode N directly                             |
+| `--output_dir="./path"` | Override the output directory (default: `{manga title}/{episode number}/`) |
 
 ```bash
-cowado check [url]
-
-# Show inactive episodes as well
-cowado check [url] --show-inactive
+# Download episode 5 directly to a custom folder
+cowado download <url> --episode=5 --output_dir="./manga"
 ```
 
-#### ► Other Commands
+---
+
+#### `cowado check <url>`
+
+Browse all episodes without downloading anything:
 
 ```bash
-# Show version
+cowado check https://comic-walker.com/detail/KC_003002_S
+```
+
+```
+  青春ヒストリカ
+  ────────────────
+
+  ✓  [12] 第12話  ← CURRENT
+  ✓  [11] 第11話
+  ✗  [10] 第10話  (locked)
+  ...
+
+  12 episode(s) total · 10 available
+```
+
+---
+
+#### `cowado version`
+
+```bash
 cowado version
 ```
