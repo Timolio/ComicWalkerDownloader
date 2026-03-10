@@ -108,3 +108,7 @@ cowado check https://comic-walker.com/detail/KC_003002_S
 ```bash
 cowado version
 ```
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/image?repos=Timolio/ComicWalkerDownloader&type=date&legend=top-left)](https://www.star-history.com/?repos=Timolio%2FComicWalkerDownloader&type=date&legend=top-left)
