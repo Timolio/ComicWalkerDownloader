@@ -1,6 +1,6 @@
 <!-- i18readme -->
 
-[English](../README.md) | [Русский](README.ru.md) | [Deutsch](README.de.md) | [Français](README.fr.md) | **中文** | [日本語](README.ja.md)
+[English](../README.md) | [Русский](README.ru.md) | [Deutsch](README.de.md) | [Français](README.fr.md) | **中文**
 
 <!-- i18readme -->
 

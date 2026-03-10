@@ -1,5 +1,7 @@
 <!-- i18readme -->
-[English](../README.md) | [Русский](README.ru.md) | **Deutsch** | [Français](README.fr.md) | [中文](README.zh.md) | [日本語](README.ja.md)
+
+[English](../README.md) | [Русский](README.ru.md) | **Deutsch** | [Français](README.fr.md) | [中文](README.zh.md)
+
 <!-- i18readme -->
 
 <br>
@@ -69,10 +71,10 @@ Die Seiten werden als `.webp`-Dateien gespeichert, benannt nach Seitennummer (`0
 
 #### Flags
 
-| Flag                    | Beschreibung                                                                          |
-| ----------------------- | ------------------------------------------------------------------------------------- |
-| `--episode=N`           | Überspringt die Auswahl und lädt Episode N direkt herunter                            |
-| `--output_dir="./path"` | Überschreibt das Ausgabeverzeichnis (Standard: `{Manga-Titel}/{Episodennummer}/`)     |
+| Flag                    | Beschreibung                                                                      |
+| ----------------------- | --------------------------------------------------------------------------------- |
+| `--episode=N`           | Überspringt die Auswahl und lädt Episode N direkt herunter                        |
+| `--output_dir="./path"` | Überschreibt das Ausgabeverzeichnis (Standard: `{Manga-Titel}/{Episodennummer}/`) |
 
 ```bash
 # Episode 5 direkt in einen benutzerdefinierten Ordner herunterladen

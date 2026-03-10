@@ -1,5 +1,7 @@
 <!-- i18readme -->
-[English](../README.md) | [Русский](README.ru.md) | [Deutsch](README.de.md) | **Français** | [中文](README.zh.md) | [日本語](README.ja.md)
+
+[English](../README.md) | [Русский](README.ru.md) | [Deutsch](README.de.md) | **Français** | [中文](README.zh.md)
+
 <!-- i18readme -->
 
 <br>
@@ -69,9 +71,9 @@ Les pages sont enregistrées en fichiers `.webp`, nommées par numéro de page (
 
 #### Options
 
-| Option                  | Description                                                                                    |
-| ----------------------- | ---------------------------------------------------------------------------------------------- |
-| `--episode=N`           | Ignore la sélection et télécharge directement l'épisode N                                      |
+| Option                  | Description                                                                               |
+| ----------------------- | ----------------------------------------------------------------------------------------- |
+| `--episode=N`           | Ignore la sélection et télécharge directement l'épisode N                                 |
 | `--output_dir="./path"` | Remplace le répertoire de sortie (par défaut : `{titre du manga}/{numéro de l'épisode}/`) |
 
 ```bash

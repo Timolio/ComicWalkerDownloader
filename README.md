@@ -1,5 +1,5 @@
 <!-- i18readme -->
-**English** | [Русский](i18readme/README.ru.md) | [Deutsch](i18readme/README.de.md) | [Français](i18readme/README.fr.md) | [中文](i18readme/README.zh.md) | [日本語](i18readme/README.ja.md)
+**English** | [Русский](i18readme/README.ru.md) | [Deutsch](i18readme/README.de.md) | [Français](i18readme/README.fr.md) | [中文](i18readme/README.zh.md)
 <!-- i18readme -->
 
 <br>
