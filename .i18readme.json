@@ -1,0 +1,5 @@
+{
+    "langs": ["ru", "de", "fr", "zh"],
+    "dir": "i18readme",
+    "readmes": ["README.md"]
+}

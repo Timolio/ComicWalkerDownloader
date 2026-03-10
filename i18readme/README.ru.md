@@ -1,5 +1,5 @@
 <!-- i18readme -->
-**English** | [Русский](i18readme/README.ru.md) | [Deutsch](i18readme/README.de.md) | [Français](i18readme/README.fr.md) | [中文](i18readme/README.zh.md) | [日本語](i18readme/README.ja.md)
+[English](../README.md) | **Русский** | [Deutsch](README.de.md) | [Français](README.fr.md) | [中文](README.zh.md) | [日本語](README.ja.md)
 <!-- i18readme -->
 
 <br>
@@ -12,15 +12,15 @@
 
 <img width="619" height="331" alt="Image" src="https://github.com/user-attachments/assets/e8aa40c5-e9c3-47f6-b29f-b5babb5c7cfb" />
 
-CLI tool to download manga images from [ComicWalker](https://comic-walker.com).
+CLI-утилита для скачивания манги с [ComicWalker](https://comic-walker.com).
 
-> ⚠️ Make sure you do not use this tool to infringe any copyright laws.
+> ⚠️ Не используйте этот инструмент для нарушения авторских прав.
 
 ---
 
-### Installation
+### Установка
 
-**Python 3.8+** is required. Download it from [python.org](https://www.python.org/downloads/).
+Требуется **Python 3.8+**. Скачать можно с [python.org](https://www.python.org/downloads/).
 
 ```bash
 pip install cowado
@@ -28,11 +28,11 @@ pip install cowado
 
 ---
 
-### Usage
+### Использование
 
 #### `cowado download <url>`
 
-Pass any ComicWalker URL — a series page, a direct episode link, or one with query params:
+Принимает любую ссылку ComicWalker — на серию, на конкретный эпизод или с query-параметрами:
 
 ```bash
 cowado download https://comic-walker.com/detail/KC_008483_S
@@ -42,7 +42,7 @@ cowado download https://comic-walker.com/detail/KC_008483_S/episodes/KC_00848300
 ...
 ```
 
-The tool fetches the manga details and shows you what it found:
+Утилита загружает информацию о манге и показывает найденное:
 
 ```
   青春ヒストリカ
@@ -63,19 +63,19 @@ The tool fetches the manga details and shows you what it found:
   ✓ Done! /home/user/青春ヒストリカ/012/
 ```
 
-Pages are saved as `.webp` files, named by page number (`001.webp`, `002.webp`, ...).
+Страницы сохраняются в формате `.webp` с именами по номерам (`001.webp`, `002.webp`, ...).
 
 ---
 
-#### Flags
+#### Флаги
 
-| Flag                    | Description                                                                |
-| ----------------------- | -------------------------------------------------------------------------- |
-| `--episode=N`           | Skip selection and download episode N directly                             |
-| `--output_dir="./path"` | Override the output directory (default: `{manga title}/{episode number}/`) |
+| Флаг                    | Описание                                                                                      |
+| ----------------------- | --------------------------------------------------------------------------------------------- |
+| `--episode=N`           | Пропустить выбор и сразу скачать эпизод N                                                     |
+| `--output_dir="./path"` | Указать директорию для сохранения (по умолчанию: `{название манги}/{номер эпизода}/`) |
 
 ```bash
-# Download episode 5 directly to a custom folder
+# Скачать эпизод 5 напрямую в указанную папку
 cowado download <url> --episode=5 --output_dir="./manga"
 ```
 
@@ -83,7 +83,7 @@ cowado download <url> --episode=5 --output_dir="./manga"
 
 #### `cowado check <url>`
 
-Browse all episodes without downloading anything:
+Просмотр всех эпизодов без скачивания:
 
 ```bash
 cowado check https://comic-walker.com/detail/KC_003002_S
