@@ -1,7 +1,5 @@
 <!-- i18readme -->
-
 [English](../README.md) | **Русский** | [Deutsch](README.de.md) | [Français](README.fr.md) | [中文](README.zh.md)
-
 <!-- i18readme -->
 
 <br>
@@ -14,9 +12,9 @@
 
 <img width="619" height="331" alt="Image" src="https://github.com/user-attachments/assets/e8aa40c5-e9c3-47f6-b29f-b5babb5c7cfb" />
 
-CLI-утилита для скачивания манги с [ComicWalker](https://comic-walker.com).
+CLI-инструмент для скачивания манги с [ComicWalker](https://comic-walker.com).
 
-> ⚠️ Не используйте этот инструмент для нарушения авторских прав.
+> ⚠️ Убедитесь, что вы не используете этот инструмент для нарушения авторских прав.
 
 ---
 
@@ -34,7 +32,7 @@ pip install cowado
 
 #### `cowado download <url>`
 
-Принимает любую ссылку ComicWalker — на серию, на конкретный эпизод или с query-параметрами:
+Передайте любую ссылку с ComicWalker — страницу серии, прямую ссылку на эпизод или ссылку с query-параметрами:
 
 ```bash
 cowado download https://comic-walker.com/detail/KC_008483_S
@@ -44,7 +42,7 @@ cowado download https://comic-walker.com/detail/KC_008483_S/episodes/KC_00848300
 ...
 ```
 
-Утилита загружает информацию о манге и показывает найденное:
+Инструмент загружает информацию о манге и показывает, что нашёл:
 
 ```
   青春ヒストリカ
@@ -65,7 +63,7 @@ cowado download https://comic-walker.com/detail/KC_008483_S/episodes/KC_00848300
   ✓ Done! /home/user/青春ヒストリカ/012/
 ```
 
-Страницы сохраняются в формате `.webp` с именами по номерам (`001.webp`, `002.webp`, ...).
+Страницы сохраняются в формате `.webp` с именами по номеру страницы (`001.webp`, `002.webp`, ...).
 
 ---
 
@@ -74,7 +72,7 @@ cowado download https://comic-walker.com/detail/KC_008483_S/episodes/KC_00848300
 | Флаг                    | Описание                                                                              |
 | ----------------------- | ------------------------------------------------------------------------------------- |
 | `--episode=N`           | Пропустить выбор и сразу скачать эпизод N                                             |
-| `--output_dir="./path"` | Указать директорию для сохранения (по умолчанию: `{название манги}/{номер эпизода}/`) |
+| `--output_dir="./path"` | Переопределить директорию сохранения (по умолчанию: `{название манги}/{номер эпизода}/`) |
 
 ```bash
 # Скачать эпизод 5 напрямую в указанную папку
@@ -110,3 +108,7 @@ cowado check https://comic-walker.com/detail/KC_003002_S
 ```bash
 cowado version
 ```
+
+## История звёзд
+
+[![Star History Chart](https://api.star-history.com/image?repos=Timolio/ComicWalkerDownloader&type=date&legend=top-left)](https://www.star-history.com/?repos=Timolio%2FComicWalkerDownloader&type=date&legend=top-left)

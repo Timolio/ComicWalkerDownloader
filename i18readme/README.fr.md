@@ -1,7 +1,5 @@
 <!-- i18readme -->
-
 [English](../README.md) | [Русский](README.ru.md) | [Deutsch](README.de.md) | **Français** | [中文](README.zh.md)
-
 <!-- i18readme -->
 
 <br>
@@ -16,7 +14,7 @@
 
 Outil en ligne de commande pour télécharger des images de manga depuis [ComicWalker](https://comic-walker.com).
 
-> ⚠️ Assurez-vous de ne pas utiliser cet outil en violation des lois sur le droit d'auteur.
+> ⚠️ Veillez à ne pas utiliser cet outil en violation des lois sur le droit d'auteur.
 
 ---
 
@@ -34,7 +32,7 @@ pip install cowado
 
 #### `cowado download <url>`
 
-Passez n'importe quelle URL ComicWalker — une page de série, un lien direct vers un épisode, ou une URL avec des paramètres :
+Passez n'importe quelle URL ComicWalker — page de série, lien direct vers un épisode, ou URL avec des paramètres :
 
 ```bash
 cowado download https://comic-walker.com/detail/KC_008483_S
@@ -49,35 +47,35 @@ L'outil récupère les informations du manga et affiche ce qu'il a trouvé :
 ```
   青春ヒストリカ
   ────────────────
-  12 episode(s) available
+  12 épisode(s) disponible(s)
 
-? Select episode to download:
+? Sélectionnez l'épisode à télécharger :
  ❯ [12] 第12話  ← CURRENT
    [11] 第11話
    [10] 第10話
    ...
 
-  Downloading → [12] 第12話
-  Saving to   → /home/user/青春ヒストリカ/012/
+  Téléchargement → [12] 第12話
+  Enregistrement → /home/user/青春ヒストリカ/012/
 
   ████████████████████████  22/22 pages
 
-  ✓ Done! /home/user/青春ヒストリカ/012/
+  ✓ Terminé ! /home/user/青春ヒストリカ/012/
 ```
 
-Les pages sont enregistrées en fichiers `.webp`, nommées par numéro de page (`001.webp`, `002.webp`, ...).
+Les pages sont enregistrées au format `.webp`, nommées par numéro de page (`001.webp`, `002.webp`, ...).
 
 ---
 
 #### Options
 
-| Option                  | Description                                                                               |
-| ----------------------- | ----------------------------------------------------------------------------------------- |
-| `--episode=N`           | Ignore la sélection et télécharge directement l'épisode N                                 |
-| `--output_dir="./path"` | Remplace le répertoire de sortie (par défaut : `{titre du manga}/{numéro de l'épisode}/`) |
+| Option                  | Description                                                                                  |
+| ----------------------- | -------------------------------------------------------------------------------------------- |
+| `--episode=N`           | Passe la sélection et télécharge directement l'épisode N                                     |
+| `--output_dir="./path"` | Remplace le répertoire de sortie (par défaut : `{titre du manga}/{numéro de l'épisode}/`)    |
 
 ```bash
-# Télécharger directement l'épisode 5 dans un dossier personnalisé
+# Télécharger l'épisode 5 directement dans un dossier personnalisé
 cowado download <url> --episode=5 --output_dir="./manga"
 ```
 
@@ -97,10 +95,10 @@ cowado check https://comic-walker.com/detail/KC_003002_S
 
   ✓  [12] 第12話  ← CURRENT
   ✓  [11] 第11話
-  ✗  [10] 第10話  (locked)
+  ✗  [10] 第10話  (verrouillé)
   ...
 
-  12 episode(s) total · 10 available
+  12 épisode(s) au total · 10 disponible(s)
 ```
 
 ---
@@ -110,3 +108,7 @@ cowado check https://comic-walker.com/detail/KC_003002_S
 ```bash
 cowado version
 ```
+
+## Historique des étoiles
+
+[![Star History Chart](https://api.star-history.com/image?repos=Timolio/ComicWalkerDownloader&type=date&legend=top-left)](https://www.star-history.com/?repos=Timolio%2FComicWalkerDownloader&type=date&legend=top-left)

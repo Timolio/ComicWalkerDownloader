@@ -1,7 +1,5 @@
 <!-- i18readme -->
-
 [English](../README.md) | [Русский](README.ru.md) | **Deutsch** | [Français](README.fr.md) | [中文](README.zh.md)
-
 <!-- i18readme -->
 
 <br>
@@ -65,15 +63,15 @@ Das Tool ruft die Manga-Details ab und zeigt dir, was es gefunden hat:
   ✓ Done! /home/user/青春ヒストリカ/012/
 ```
 
-Die Seiten werden als `.webp`-Dateien gespeichert, benannt nach Seitennummer (`001.webp`, `002.webp`, ...).
+Seiten werden als `.webp`-Dateien gespeichert, benannt nach Seitennummer (`001.webp`, `002.webp`, ...).
 
 ---
 
 #### Flags
 
-| Flag                    | Beschreibung                                                                      |
-| ----------------------- | --------------------------------------------------------------------------------- |
-| `--episode=N`           | Überspringt die Auswahl und lädt Episode N direkt herunter                        |
+| Flag                    | Beschreibung                                                                           |
+| ----------------------- | -------------------------------------------------------------------------------------- |
+| `--episode=N`           | Überspringt die Auswahl und lädt Episode N direkt herunter                             |
 | `--output_dir="./path"` | Überschreibt das Ausgabeverzeichnis (Standard: `{Manga-Titel}/{Episodennummer}/`) |
 
 ```bash
@@ -85,7 +83,7 @@ cowado download <url> --episode=5 --output_dir="./manga"
 
 #### `cowado check <url>`
 
-Alle Episoden durchstöbern, ohne etwas herunterzuladen:
+Alle Episoden durchsuchen, ohne etwas herunterzuladen:
 
 ```bash
 cowado check https://comic-walker.com/detail/KC_003002_S
@@ -110,3 +108,7 @@ cowado check https://comic-walker.com/detail/KC_003002_S
 ```bash
 cowado version
 ```
+
+## Star-Verlauf
+
+[![Star History Chart](https://api.star-history.com/image?repos=Timolio/ComicWalkerDownloader&type=date&legend=top-left)](https://www.star-history.com/?repos=Timolio%2FComicWalkerDownloader&type=date&legend=top-left)
