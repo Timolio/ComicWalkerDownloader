@@ -1,5 +1,5 @@
 <!-- i18readme -->
-**English** | [Русский](translations/README.ru.md) | [中文](translations/README.zh.md)
+[English](../README.md) | [Русский](README.ru.md) | **中文**
 <!-- i18readme -->
 
 <br>
@@ -12,15 +12,15 @@
 
 <img width="619" height="331" alt="Image" src="https://github.com/user-attachments/assets/e8aa40c5-e9c3-47f6-b29f-b5babb5c7cfb" />
 
-CLI tool to download manga images from [ComicWalker](https://comic-walker.com).
+从 [ComicWalker](https://comic-walker.com) 下载漫画图片的命令行工具。
 
-> ⚠️ Make sure you do not use this tool to infringe any copyright laws.
+> ⚠️ 请勿使用本工具侵犯任何著作权。
 
 ---
 
-### Installation
+### 安装
 
-**Python 3.11+** is required. Download it from [python.org](https://www.python.org/downloads/).
+需要 **Python 3.11+**，可从 [python.org](https://www.python.org/downloads/) 下载。
 
 ```bash
 pip install cowado
@@ -28,9 +28,9 @@ pip install cowado
 
 ---
 
-### Quick start
+### 快速开始
 
-Paste any ComicWalker link and pick an episode:
+粘贴任意 ComicWalker 链接，然后选择一话：
 
 ```bash
 cowado https://comic-walker.com/detail/KC_000097_S
@@ -54,9 +54,9 @@ Saving to 逢魔暮らしの奴さん/003
 Done. 1.2 MB
 ```
 
-That is the whole flow: choose an episode, choose an image size, wait.
+整个流程就是这样：选择一话，选择图片尺寸，然后等待。
 
-Any ComicWalker URL works — a series page or a direct episode link, with or without query parameters:
+任何 ComicWalker 链接都可以使用 —— 作品页面或直接的单话链接，带不带查询参数都行：
 
 ```bash
 cowado https://comic-walker.com/detail/KC_000097_S
@@ -66,7 +66,7 @@ cowado https://comic-walker.com/detail/KC_000097_S/episodes/KC_0000970000100011_
 
 ---
 
-### Reading the episode list
+### 如何阅读话数列表
 
 ```
     #1  (13 pages)  第1話
@@ -74,21 +74,21 @@ cowado https://comic-walker.com/detail/KC_000097_S/episodes/KC_0000970000100011_
    #16    (1 page)  1巻発売記念イラスト
 ```
 
-- **`#1`** is the episode number. Pass it as `--episode=1` to skip the prompt and download that episode right away.
-- **`#4-15  locked`** means episodes 4 through 15 are not free right now. They are shown so you can see what exists, but they cannot be selected.
-- Some entries are not chapters at all — illustrations or announcements. The page count gives them away.
+- **`#1`** 是话数编号。用 `--episode=1` 传入即可跳过选择菜单，直接下载该话。
+- **`#4-15  locked`** 表示第 4 至 15 话目前不免费。它们会显示出来让你知道有哪些内容，但无法选中。
+- 有些条目根本不是正篇 —— 而是插图或公告。看页数就能分辨。
 
 ---
 
-### Commands
+### 命令
 
 #### `cowado <url>`
 
-Short form of `cowado download <url>`. Both do the same thing.
+`cowado download <url>` 的简写，两者作用相同。
 
 #### `cowado check <url>`
 
-Show the episode list without downloading anything.
+只显示话数列表，不下载任何内容。
 
 ```bash
 cowado check https://comic-walker.com/detail/KC_000097_S
@@ -115,24 +115,24 @@ cowado version
 
 ---
 
-### Flags
+### 参数
 
-| Flag                    | What it does                                                       |
-| ----------------------- | ------------------------------------------------------------------ |
-| `--episode=N`           | Download episode N without asking                                  |
-| `--size=max`            | Pick the image size without asking: `max`, `min`, `mobile`, `desktop` |
-| `--output_dir="./path"` | Save somewhere else (default: `{manga title}/{episode number}/`)    |
+| 参数                    | 作用                                                        |
+| ----------------------- | ----------------------------------------------------------- |
+| `--episode=N`           | 直接下载第 N 话，不再询问                                    |
+| `--size=max`            | 直接指定图片尺寸：`max`、`min`、`mobile`、`desktop`          |
+| `--output_dir="./path"` | 保存到其他位置（默认为 `{漫画标题}/{话数编号}/`）            |
 
 ```bash
-# no questions asked
+# 全程无需回答任何问题
 cowado <url> --episode=5 --size=max --output_dir="./manga"
 ```
 
-**About `--size`.** ComicWalker serves two image sizes, and which one is larger depends on the title. `max` and `min` always pick by actual size, so they are the safe choice for scripts. `mobile` is always 768 px wide; `desktop` is capped by height and can land anywhere between 650 and 1284 px.
+**关于 `--size`。** ComicWalker 提供两种图片尺寸，哪一种更大取决于具体作品。`max` 和 `min` 始终按实际尺寸选择，因此在脚本中使用最为可靠。`mobile` 的宽度固定为 768 像素；`desktop` 受高度限制，根据作品不同，宽度可能在 650 到 1284 像素之间。
 
 ---
 
-### Where the files go
+### 文件保存位置
 
 ```
 逢魔暮らしの奴さん/
@@ -142,13 +142,13 @@ cowado <url> --episode=5 --size=max --output_dir="./manga"
     └── ...
 ```
 
-One folder per episode, pages named by number. Use `--output_dir` to change the location.
+每话一个文件夹，页面按编号命名。可用 `--output_dir` 更改保存位置。
 
 ---
 
-### Troubleshooting
+### 出现问题时
 
-Set `COWADO_DEBUG=1` to see full error details instead of a one-line message.
+设置 `COWADO_DEBUG=1` 可以看到完整的错误信息，而不只是一行提示。
 
 ```bash
 COWADO_DEBUG=1 cowado <url>

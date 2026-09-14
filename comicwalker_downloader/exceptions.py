@@ -6,6 +6,10 @@ class InvalidURLError(ComicWalkerError):
     """Invalid ComicWalker URL"""
     pass
 
+class NetworkError(ComicWalkerError):
+    """Could not reach ComicWalker"""
+    pass
+
 class ParsingError(ComicWalkerError):
     """Failed to parse ComicWalker data"""
     pass

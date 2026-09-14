@@ -2,19 +2,17 @@
 name = "cowado"
 description = "Download manga from ComicWalker"
 authors = [{ name = "Timolio", email = "timbad77777@gmail.com"}]
-license = { text = "MIT" }
 dynamic = ["version"]
 dependencies = [
     "fire",
-    "requests",
+    "requests>=2.27",
     "beautifulsoup4",
-    "tqdm",
-    "colorama",
-    "InquirerPy",
+    "rich>=13",
+    "InquirerPy>=0.3,<0.4",
     "loguru"
 ]
 readme = { file = "README.md", content-type = "text/markdown" }
-requires-python = ">=3.8"
+requires-python = ">=3.11"
 keywords = [
     "comic",
     "manga",
@@ -22,9 +20,22 @@ keywords = [
     "comicwalker",
     "cowado"
 ]
+classifiers = [
+    "Environment :: Console",
+    "Intended Audience :: End Users/Desktop",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Utilities",
+]
 
 [project.urls]
 Homepage = "https://github.com/Timolio/ComicWalkerDownloader"
+
+[tool.setuptools]
+packages = ["comicwalker_downloader"]
 
 [tool.setuptools.dynamic]
 version = {attr = "comicwalker_downloader._version.__version__"}
@@ -33,5 +44,5 @@ version = {attr = "comicwalker_downloader._version.__version__"}
 cowado = "comicwalker_downloader.__main__:main"
 
 [build-system]
-requires = ["setuptools>=61.0", "build"]
+requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
