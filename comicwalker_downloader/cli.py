@@ -1,5 +1,8 @@
 import os
+import re
 import sys
+
+import fire
 
 from loguru import logger
 from InquirerPy import inquirer
@@ -42,16 +45,21 @@ def check_url(url: str) -> None:
 class CLI:
     """ComicWalker Downloader"""
 
+    @fire.decorators.SetParseFn(str, 'episodes')
     def download(
         self,
         url: str,
         episode: int | None = None,
         output_dir: str | None = None,
-        size: str | None = None
+        size: str | None = None,
+        all: bool = False,
+        episodes: str | None = None,
     ) -> None:
         session = make_session()
         try:
             check_url(url)
+            if sum((episode is not None, all, episodes is not None)) > 1:
+                raise ComicWalkerError('Use only one of --episode, --episodes or --all')
 
             if size is not None:
                 size = str(size)
@@ -63,6 +71,11 @@ class CLI:
                 raise ComicWalkerError('No episodes available for download')
 
             ui.work_header(work)
+
+            if all or episodes is not None:
+                return self._download_batch(
+                    work, ComicDownloader(session), episodes, output_dir, size
+                )
 
             chosen = self._select_episode(work, episode)
             output_dir = self._resolve_output_dir(work, chosen, output_dir)
@@ -101,6 +114,49 @@ class CLI:
     def version(self) -> None:
         """Show version info"""
         print(f'cowado {__version__}')
+
+    def _download_batch(
+        self, work: Work, downloader: ComicDownloader, episodes: str | None,
+        output_dir: str | None, size: str | None,
+    ) -> None:
+        selected = self._select_episodes(work, episodes)
+        if output_dir is None:
+            output_dir = sanitize_dirname(work.title)
+        for chosen in selected:
+            episode_output_dir = os.path.join(output_dir, f'{chosen.number:03d}')
+            with ui.working('Checking sizes'):
+                renditions = downloader.list_renditions(chosen)
+            rendition = self._select_rendition(renditions, size if size is not None else 'max')
+            ui.download_target(episode_output_dir)
+            paths = downloader.run(
+                chosen, output_dir=episode_output_dir, rendition=rendition
+            )
+            ui.saved(paths)
+
+    @staticmethod
+    def _select_episodes(work: Work, selection: str | None) -> list[Episode]:
+        selected = list(work.active_episodes)
+        if selection is not None:
+            ranges = []
+            for part in str(selection).split(','):
+                match = re.fullmatch(r'([0-9]+)(?:-([0-9]+))?', part.strip())
+                if match is None:
+                    raise ComicWalkerError('Use episode numbers or ranges, e.g. --episodes=1-5,8')
+                first = int(match[1])
+                last = int(match[2]) if match[2] else first
+                if first < 1 or last < first:
+                    raise ComicWalkerError('Episode ranges must be positive and ascending')
+                ranges.append((first, last))
+            selected = [ep for ep in selected if isinstance(ep.number, int)
+                        and any(first <= ep.number <= last for first, last in ranges)]
+        if not selected:
+            raise EpisodeNotFoundError('No available episodes match the selection')
+        numbers = [ep.number for ep in selected]
+        if any(type(number) is not int or number < 1 for number in numbers):
+            raise ComicWalkerError('Cannot name batch folders: invalid episode number')
+        if len(set(numbers)) != len(numbers):
+            raise ComicWalkerError('Cannot name batch folders: duplicate episode numbers')
+        return sorted(selected, key=lambda ep: ep.number)
 
     def _select_episode(self, work: Work, number: int | None) -> Episode:
         if number is None:

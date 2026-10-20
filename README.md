@@ -128,6 +128,31 @@ cowado version
 cowado <url> --episode=5 --size=max --output_dir="./manga"
 ```
 
+### Batch downloads
+
+Use `--all` to download all available episodes in the fetched episode list, or
+`--episodes` to select numbers and inclusive ranges. These flags cannot be
+combined with each other or with `--episode`.
+
+```bash
+cowado <url> --all --output_dir="./manga"
+cowado <url> --episodes="1-5,8,10-12" --size=max
+```
+
+Batch downloads skip unavailable episodes, remove repeated selections and run in
+episode-number order. An empty selection is an error. Unless `--size` is given,
+batch downloads use `max` without prompting. A download failure stops the batch.
+
+Each episode gets its own numbered folder: by default `{manga title}/001/`,
+`{manga title}/002/`, etc. With `--output_dir="./manga"`, these become
+`./manga/001/`, `./manga/002/`, etc., even when the batch selects only one episode.
+Invalid or duplicate episode numbers are rejected before downloading to prevent
+folder collisions. Existing files at the same paths may be overwritten, as in
+single-episode downloads.
+
+The existing single-episode download behavior, including custom output directories,
+is unchanged.
+
 **About `--size`.** ComicWalker serves two image sizes, and which one is larger depends on the title. `max` and `min` always pick by actual size, so they are the safe choice for scripts. `mobile` is always 768 px wide; `desktop` is capped by height and can land anywhere between 650 and 1284 px.
 
 ---
